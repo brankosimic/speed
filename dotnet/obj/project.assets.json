@@ -870,24 +870,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/branko/.nuget/packages/": {}
+    "/home/branko/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/branko/Desktop/code/speed/dotnet/dotnet.csproj",
+      "projectUniqueName": "/home/branko/Desktop/code/speed/dotnet/dotnet.csproj",
       "projectName": "dotnet",
-      "projectPath": "/Users/branko/Desktop/code/speed/dotnet/dotnet.csproj",
-      "packagesPath": "/Users/branko/.nuget/packages/",
-      "outputPath": "/Users/branko/Desktop/code/speed/dotnet/obj/",
+      "projectPath": "/home/branko/Desktop/code/speed/dotnet/dotnet.csproj",
+      "packagesPath": "/home/branko/.nuget/packages/",
+      "outputPath": "/home/branko/Desktop/code/speed/dotnet/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/branko/.nuget/NuGet/NuGet.Config"
+        "/home/branko/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -906,7 +907,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -948,7 +949,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

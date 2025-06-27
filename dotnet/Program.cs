@@ -6,20 +6,22 @@ using System.Data;
 using Dapper;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Set Kestrel to use 8 threads for request processing
-// builder.WebHost.ConfigureKestrel(serverOptions =>
-// {
-//     serverOptions.Limits.MaxConcurrentConnections = 1000; // optional, for high concurrency
-//     serverOptions.Limits.MaxConcurrentUpgradedConnections = 1000;
-//     serverOptions.AddServerHeader = false;
-// });
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Limits.MaxConcurrentConnections = 10000;
+    serverOptions.Limits.MaxConcurrentUpgradedConnections = 10000;
+    serverOptions.Limits.MaxRequestBodySize = 52428800; // 50MB
+    serverOptions.ConfigureEndpointDefaults(listenOptions => {
+    listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+});
+});
 
-// Set thread pool min/max to 8 worker threads (for CPU-bound workloads)
-// System.Threading.ThreadPool.SetMinThreads(8, 8);
-// System.Threading.ThreadPool.SetMaxThreads(8, 8);
+ThreadPool.SetMinThreads(workerThreads: 100, completionPortThreads: 100);
+ThreadPool.SetMaxThreads(workerThreads: 32767, completionPortThreads: 32767);
 
 
 builder.Services.AddOpenApi();
